@@ -11,13 +11,17 @@ provider "azurerm" {
     features {}
 }
 
+variable "container" {
+    nomContainer = "weatherapi"
+}
+
 resource "azurerm_resource_group" "tf_test" {
     name = "tfmainrg"
     location = "Canada Central"
 }
 
 resource "azurerm_container_group" "tfcg_test" {
-  name                      = "weatherapi"
+  name                      = container.nomContainer
   location                  = azurerm_resource_group.tf_test.location
   resource_group_name       = azurerm_resource_group.tf_test.name
 
