@@ -2,3 +2,6 @@
 .terraform/
 bin/
 obj/
+variables.tf
+*.tfstate
+*.tfstate.backup
