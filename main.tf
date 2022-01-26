@@ -36,4 +36,4 @@ resource "azurerm_container_group" "tfcg_test" {
             protocol    = "TCP"
         }
   }
-}lgupv47ihzwt6nusvs5p3v5uxaqexuzb2v6vcf2brn6ludqhicia
+}
