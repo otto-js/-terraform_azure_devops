@@ -7,6 +7,10 @@ terraform {
     }
 }
 
+provider "azurerm" {
+    features {}
+}
+
 terraform {
     backend "azurerm" {
       resource_group_name = "rg-tf-blob-storage"
@@ -16,21 +20,13 @@ terraform {
     }
 }
 
-provider "azurerm" {
-    features {}
-}
-
-variable "container" {
-    nomContainer = "weatherapi"
-}
-
 resource "azurerm_resource_group" "tf_test" {
-    name = "tfmainrg"
+    name = "rg-tf-main"
     location = "Canada Central"
 }
 
 resource "azurerm_container_group" "tfcg_test" {
-  name                      = container.nomContainer
+  name                      = "weatherapi"
   location                  = azurerm_resource_group.tf_test.location
   resource_group_name       = azurerm_resource_group.tf_test.name
 
