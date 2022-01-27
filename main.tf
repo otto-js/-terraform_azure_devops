@@ -7,6 +7,15 @@ terraform {
     }
 }
 
+terraform {
+    backend "azurerm" {
+      resource_group_name = "rg-tf-blob-storage"
+      storage_account_name = "tfstorageottosbigdock"
+      container_name = "tfstate"
+      key = "terraform.tfstate"
+    }
+}
+
 provider "azurerm" {
     features {}
 }
