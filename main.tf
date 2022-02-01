@@ -36,12 +36,12 @@ resource "azurerm_container_group" "tfcg_test" {
   resource_group_name       = azurerm_resource_group.tf_test.name
 
   ip_address_type     = "public"
-  dns_name_label      = "ottosbigdock/weatherapi:${var.imagebuild}"
+  dns_name_label      = "ottosbigdockweatherapi"
   os_type             = "Linux"
 
   container {
       name            = "weatherapi"
-      image           = "ottosbigdock/weatherapi"
+      image           = "ottosbigdock/weatherapi:${var.imagebuild}"
         cpu             = "1"
         memory          = "1"
 
