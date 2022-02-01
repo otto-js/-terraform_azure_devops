@@ -20,6 +20,11 @@ terraform {
     }
 }
 
+variable "imagebuild" {
+    type = string
+    description = "latest image build"
+}
+
 resource "azurerm_resource_group" "tf_test" {
     name = "rg-tf-main"
     location = "Canada Central"
@@ -31,7 +36,7 @@ resource "azurerm_container_group" "tfcg_test" {
   resource_group_name       = azurerm_resource_group.tf_test.name
 
   ip_address_type     = "public"
-  dns_name_label      = "ottosbigdockweatherapi"
+  dns_name_label      = "ottosbigdockweatherapi:${var.imagebuild}"
   os_type             = "Linux"
 
   container {
